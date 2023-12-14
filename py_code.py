@@ -8,7 +8,7 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 
 # Load patent data
-data_path = "C:\\templates\\Dronealexa.xlsx"
+data_path = "Dronealexa.xlsx"
 data = pd.read_excel(data_path)
 
 def clean_title(title):
