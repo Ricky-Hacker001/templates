@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patent Search</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+            background-color: #000000;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #297fb8;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #000000;
+            color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        a.learn-more-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        a.learn-more-btn:hover {
+            background-color: #297fb8;
+        }
+
+        p.no-results {
+            color: #f00;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patent Search</h1>
+    <form action="/" method="POST">
+        <input type="text" name="user_input" placeholder="Enter patent title or keyword">
+        <button type="submit">Search</button>
+    </form>
+    {% if abstracts %}
+        <h2>Patents found:</h2>
+        <ul>
+            {% for item in abstracts %}
+                <li>
+                    <h3>{{ item["Title"] }}</h3>
+                    <p>{{ item["Abstract"] }}</p>
+                    <!-- <p>Entities in Abstract: {{ item["EntitiesInAbstract"] }}</p> -->
+                        <!-- <a href="E:\Magnovite\index.html" class="learn-more-btn">Learn More</a> -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-results">No patent found.</p>
+    {% endif %}
+</body>
+</html>
