@@ -85,6 +85,8 @@
         p {
             color: #acabab;
             margin-bottom: 15px;
+            margin-left: 20px;
+            margin-right: 50px;
         }
 
         a.learn-more-btn {
@@ -117,7 +119,7 @@
     </form>
     {% if abstracts %}
         <h2>Patents found:</h2>
-        <ul>
+        <ol>
             {% for item in abstracts %}
                 <li>
                     <h3>{{ item["Title"] }}</h3>
@@ -126,7 +128,7 @@
                         <!-- <a href="E:\Magnovite\index.html" class="learn-more-btn">Learn More</a> -->
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
     {% else %}
         <p class="no-results">No patent found.</p>
     {% endif %}
